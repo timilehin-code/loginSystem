@@ -9,6 +9,8 @@ This is a simple light weight login system that works on the terminal it allow u
 - User autentication
 - password encryption using `utf-8` hashing
 - saving of registered users
+- password validation
+- checking email validation
 
 
 # Note
