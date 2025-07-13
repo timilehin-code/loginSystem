@@ -8,7 +8,12 @@ import bcrypt
 prompt = Prompt()
 console = Console()
 
-
+def menu():
+    console.print(
+        "[bold blue]welcome to the authentication, please select the an option[/bold blue]"
+    )
+    console.print("[green]1.Login[/green]")
+    console.print("[green]2.Register[/green]")
 # email vaidator
 def validate_email(email):
     email_regex = r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
@@ -59,4 +64,4 @@ def register():
         print(f"Error saving users to file: {e}")
 
 
-register()
+
