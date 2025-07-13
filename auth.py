@@ -12,8 +12,8 @@ def menu():
     console.print(
         "[bold blue]welcome to the authentication, please select the an option[/bold blue]"
     )
-    console.print("[green]1.Login[/green]")
-    console.print("[green]2.Register[/green]")
+    console.print("[green]1.Register[/green]")
+    console.print("[green]2.Login[/green]")
 # email vaidator
 def validate_email(email):
     email_regex = r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
