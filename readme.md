@@ -1,4 +1,4 @@
-# User Autentication system with python
+# User Authentication system with python
 
 ## overview
 This is a simple light weight login system that works on the terminal it allow users to be  onboarded and also autenticate users when trying to login 
