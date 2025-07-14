@@ -50,6 +50,13 @@ def checkEmail(usersList, email):
 def genrate_random_string(length):
     return "".join(random.choice(string.ascii_letters)for _ in range(length)) 
     
+
+def matchpassword(a,b):
+    if a == b:
+        return True
+    else:
+        return False
+
 # user registration
 def register():
     loaded_users = []
@@ -63,8 +70,9 @@ def register():
             console.print(f"[red]unable to print users because, {e},[/red]")
     fName = prompt.ask("[yellow]Input your first name[/yellow]").strip().title()
     lNname = prompt.ask("[yellow]Input your Last name[/yellow]").strip().title()
-    email = prompt.ask("[yellow]Input your email[/yellow]").strip()
+    email = prompt.ask("[yellow]Input your email[/yellow]").strip().lower()
     passWord = prompt.ask("[yellow]Input your Password[/yellow]").strip()
+    confirmPassword = prompt.ask("[yellow]Enter password again[/yellow]")
     randInt = random.randint(00,99)
     details = {
         "First_Name": fName,
@@ -83,8 +91,16 @@ def register():
     elif checkEmail(loaded_users, email):
         console.print("[red]The email you entered already exist![/red]")
         return
+    elif checkEmail(loaded_users, details["userName"]):
+        console.print("[red]The UserName already exist![/red]")
+        return
+    elif not matchpassword(passWord, confirmPassword):
+        console.print("[red]Pasword does not match.[/red]")
+        return
     else:
         loaded_users.append(details)
+        console.print("[green]You have be registered siccessfully![green]")
+        console.print(f"[blue]Your username is {details['userName']}[/blue]")
 
     try:
         with open("users.json", "w") as usersFile:
