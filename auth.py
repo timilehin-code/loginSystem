@@ -4,6 +4,9 @@ import json
 import os
 import re
 import bcrypt
+import random
+import string
+import getpass
 
 prompt = Prompt()
 console = Console()
@@ -44,7 +47,9 @@ def checkEmail(usersList, email):
                 return True
     return False
 
-
+def genrate_random_string(length):
+    return "".join(random.choice(string.ascii_letters)for _ in range(length)) 
+    
 # user registration
 def register():
     loaded_users = []
@@ -56,15 +61,16 @@ def register():
         except Exception as e:
             loaded_users = []
             console.print(f"[red]unable to print users because, {e},[/red]")
-    fName = prompt.ask("[yellow]Input your first name[/yellow]")
-    lNname = prompt.ask("[yellow]Input your Last name[/yellow]")
-    email = prompt.ask("[yellow]Input your email[/yellow]")
-    passWord = prompt.ask("[yellow]Input your Password[/yellow]")
-
+    fName = prompt.ask("[yellow]Input your first name[/yellow]").strip().title()
+    lNname = prompt.ask("[yellow]Input your Last name[/yellow]").strip().title()
+    email = prompt.ask("[yellow]Input your email[/yellow]").strip()
+    passWord = prompt.ask("[yellow]Input your Password[/yellow]").strip()
+    randInt = random.randint(00,99)
     details = {
         "First_Name": fName,
         "Last_Name": lNname,
         "email": email,
+        "userName": fName + "_" + genrate_random_string(3)+ str(randInt),
         "password": hash_password(passWord),
     }
 
@@ -72,7 +78,7 @@ def register():
         console.print("[red]your email  is invalid![/red]")
         return
     elif not validate_password(passWord):
-        console.print("[red]your password is invalid! Must be 8+ characters with uppercase,lowercasem digit, and special character.[/red]")
+        console.print("[red]your password is invalid! Must be 8+ characters with uppercase,lowercasem digit, and a special character.[/red]")
         return
     elif checkEmail(loaded_users, email):
         console.print("[red]The email you entered already exist![/red]")
