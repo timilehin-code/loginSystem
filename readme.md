@@ -11,6 +11,9 @@ This is a simple light weight login system that works on the terminal it allow u
 - saving of registered users
 - password validation
 - checking email validation
+- secure login
+- Password concealing
+
 
 ## Dependencies
 - `Json` for saving users info
@@ -23,4 +26,4 @@ This is a simple light weight login system that works on the terminal it allow u
 - `random` to genrate random numbers and letters 
 
 # Note
-Don't use this directly on your project as it is still a working progress, and more updates will be added soon thanks ☺️❤️💙
+Don't use this directly on your project as it is still a working progress, and more updates will be added soon thanks. Oluwatimilehin ☺️❤️💙
