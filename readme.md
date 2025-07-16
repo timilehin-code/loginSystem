@@ -36,7 +36,7 @@ This is a simple light weight login system that works on the terminal it allow u
 ## Usage
 Ensure python is installed on your computer and run the `main.py` file.
 
-## installation
+## Installation
 1. Ensure Python 3.7 or higher is installed on your machine. Verify with:
 
    ```bash
