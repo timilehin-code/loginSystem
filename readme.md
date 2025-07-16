@@ -1,40 +1,30 @@
-# User Authentication system with python
+# User Authentication System with Python
 
-## overview
-This is a simple light weight login system that works on the terminal it allow users to be  onboarded and also autenticate users when trying to login 
-
+## Overview
+This is a lightweight, terminal-based user authentication system that allows users to register (onboarding) and log in securely.
 
 ## Features
-- User onbording
-- User autentication
-- password encryption using `utf-8` hashing
-- saving of registered users
-- password validation
-- checking email validation
-- secure login
-- email authentication
+- **User Onboarding**: Register new users with a valid email and secure password.
+- **User Authentication**: Log in with email and password, with secure validation.
+- **Password Hashing**: Securely hash passwords using `bcrypt` for safe storage.
+- **User Data Storage**: Save registered user information in a JSON file.
+- **Password Validation**: Enforce strong password requirements (e.g., minimum length, special characters).
+- **Email Validation**: Verify email format using regular expressions.
+- **Secure Login**: Authenticate users securely with hashed password verification.
+- **Email Authentication**: Send verification emails during registration or for password recovery (requires email setup in `.env`).
 
 ## Requirements
 - **Python**: Version 3.7 or later
-- Intermidate Understanding of python
-- Proper Understanding of how python functions works
+- Intermediate understanding of Python
+- Basic understanding of Python functions
 
 ## Dependencies
-- `Json` for saving users info
-- `bcrypt` for data encryption
-- `re` for regular expresion validation
-- `rich` for terminal styling
-- `os` for file handling
-- `string` for random characters
-- `random` to genrate random numbers and letters
-- `smtplib` to send mail
-- `email` for mail handling 
-- `dotenv` for accesing the environment variable (`.env`) file
+- Python standard libraries: `json`, `re`, `os`, `string`, `random`, `smtplib`, `email`
+- External packages:
+  - `rich` for terminal styling
+  - `bcrypt` for password hashing
+  - `python-dotenv` for accessing environment variables (`.env` file)
 
-
-
-## Usage
-Ensure python is installed on your computer and run the `main.py` file.
 
 ## Installation
 1. Ensure Python 3.7 or higher is installed on your machine. Verify with:
@@ -51,44 +41,51 @@ Ensure python is installed on your computer and run the `main.py` file.
    ```bash
    cd loginSystem
    ```
-4. make sure the python rich module is installed on your machine. to install run the following command on your terminal:
+4. Install the required external packages:
 
 ```bash
-  pip install rich
+ pip install rich bcrypt python-dotenv
 ```
 
-4.  make sure the python bcrypt module is installed on your machine. to install, run the following command on your terminal:
 
-```bash
-  pip install bcrypt
-```
-
-5. make sure the python `dotenv` module is installed on your machine. to install, run the following command on your terminal:
-
-```bash
-  pip install python-dotenv
-```
-
-6. also make sure you create a `.env` file to store your email credentials
+5. Create a .env file in the project root with the following structure:
 
 ```env
 EMAIL_ADDRESS=yourmail@mail.com
 EMAIL_PASSWORD=yourPassword
 ```
+**Note**:  Ensure the `.env` file is added to `.gitignore` to prevent committing sensitive credentials. For Gmail, enable 2FA and use an app-specific password for `EMAIL_PASSWORD`
 
+6. The following dependencies are part of Python’s standard library and do not require installation:  `json`, `re`, `os`, `string`, `random`, `smtplib`, `email`
+
+
+## Usage
+Ensure python is installed on your computer .
+
+1. Navigate to the project directory:
+   ```bash
+   cd loginSystem
+   ```
+2. Run the main Script
+   ```bash
+   python main.py
+   ```
+3. Follow the terminal prompts to register a new user, log in, or exit the program.
 
 ## project Structure
 
 ```
 loginSystem/
 |
-|__.gitignore #gitignore file
+|__.gitignore         # Gitignore file
 |
-|__auth.py  #all functions file
+|__.env              # Environment file for email credentials (not included, must be created)
 |
-|__main.py #menu file
+|__auth.py           # All authentication functions
 |
-└──  README.md #this file
+|__main.py           # Terminal menu interface
+|
+└── README.md        # This file
 ```
 # Note
-Don't use this directly on your project as it is still a working progress, and more updates will be added soon thanks. Oluwatimilehin ☺️❤️💙
+This project is a work in progress. Features like password recovery, advanced email verification, and user profile management may be added in future updates. Do not use this in production without thorough testing. Contributions and feedback are welcome! Thanks, Oluwatimilehin ☺️❤️💙
